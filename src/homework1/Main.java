@@ -2,16 +2,22 @@ package homework1;
 
 import homework1.add_task.Address;
 import homework1.task2.Rectangle;
-import homework1.task3.Book;
 import homework1.task4.Computer;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         /*----------ADDITIONAL TASK---------*/
+        System.out.println("/*----------ADDITIONAL TASK---------*/");
+
         Address address = new Address();
+        address.setAddress();
+        address.print();
+
+        System.out.println("/*----------ADDITIONAL TASK---------*/\n\n");
 
         /*----------TASK 2---------*/
         System.out.println("/*----------TASK 2---------*/");
@@ -27,6 +33,20 @@ public class Main {
         System.out.println("/*----------TASK 2---------*/\n\n");
 
         /*----------TASK 4---------*/
-        Computer computer = new Computer();
+        System.out.println("/*----------TASK 4---------*/");
+
+        Computer[] Computers = new Computer[5];
+
+        for (int i = 0; i < Computers.length; i++) {
+            Computers[i] = new Computer();
+        }
+
+        // Убедимся, что массив содержит объекты
+        for (Computer computer : Computers) {
+            System.out.println(computer);
+        }
+
+        System.out.println("/*----------TASK 4---------*/");
+
     }
 }
