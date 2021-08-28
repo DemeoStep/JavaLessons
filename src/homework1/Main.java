@@ -2,6 +2,7 @@ package homework1;
 
 import homework1.add_task.Address;
 import homework1.task2.Rectangle;
+import homework1.task3.Book;
 import homework1.task4.Computer;
 
 import java.util.Scanner;
@@ -25,7 +26,7 @@ public class Main {
 
         System.out.println("/*----------TASK 2---------*/\n\n");
 
-        /*----------TASK 3---------*/
+        /*----------TASK 4---------*/
         Computer computer = new Computer();
     }
 }
