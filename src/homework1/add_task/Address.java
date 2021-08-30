@@ -58,7 +58,7 @@ public class Address {
         this.apartment = apartment;
     }
 
-    public void setAddress() {
+    public void fillAddress() {
         Scanner input = new Scanner(System.in);
         System.out.print("Введите почтовый индекс: ");
         setIndex(input.nextInt());

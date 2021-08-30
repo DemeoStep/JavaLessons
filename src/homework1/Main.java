@@ -4,7 +4,6 @@ import homework1.add_task.Address;
 import homework1.task2.Rectangle;
 import homework1.task4.Computer;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +13,7 @@ public class Main {
         System.out.println("/*----------ADDITIONAL TASK---------*/");
 
         Address address = new Address();
-        address.setAddress();
+        address.fillAddress();
         address.print();
 
         System.out.println("/*----------ADDITIONAL TASK---------*/\n\n");
