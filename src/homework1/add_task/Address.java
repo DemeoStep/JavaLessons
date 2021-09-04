@@ -3,12 +3,17 @@ package homework1.add_task;
 import java.util.Scanner;
 
 public class Address {
+
     private int index;
     private String country;
     private String city;
     private String street;
     private int house;
     private int apartment;
+
+    public Address() {
+        updateAddress();
+    }
 
     public int getIndex() {
         return index;
@@ -58,7 +63,7 @@ public class Address {
         this.apartment = apartment;
     }
 
-    public void fillAddress() {
+    public void updateAddress() {
         Scanner input = new Scanner(System.in);
         System.out.print("Введите почтовый индекс: ");
         setIndex(input.nextInt());

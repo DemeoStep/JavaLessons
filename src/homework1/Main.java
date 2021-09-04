@@ -8,12 +8,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
         /*----------ADDITIONAL TASK---------*/
         System.out.println("/*----------ADDITIONAL TASK---------*/");
 
         Address address = new Address();
-        address.fillAddress();
+        address.updateAddress();
         address.print();
 
         System.out.println("/*----------ADDITIONAL TASK---------*/\n\n");
