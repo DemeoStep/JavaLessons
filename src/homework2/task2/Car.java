@@ -11,10 +11,12 @@ public class Car {
 
     public Car(int year) {
         this.year = year;
+        this.color = "undefined";
     }
 
     public Car(String color) {
         this.color = color;
+        this.year = 0;
     }
 
     public Car(int year, String color) {
