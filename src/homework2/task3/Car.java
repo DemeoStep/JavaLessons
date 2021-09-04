@@ -8,8 +8,8 @@ public class Car {
 
     public Car() {
         this.year = 1885;
-        this.speed = 3.0;
-        this.weight = 100;
+        this.speed = 16;
+        this.weight = 300;
         this.color = "black";
     }
 
