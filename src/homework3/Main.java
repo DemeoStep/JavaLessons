@@ -5,7 +5,11 @@ import homework3.task2.*;
 import homework3.task3.Car;
 import homework3.task3.Plane;
 import homework3.task3.Ship;
-import homework3.task3.Vehicle;
+import homework3.task4.DocumentWorker;
+import homework3.task4.ExpertDocumentWorker;
+import homework3.task4.ProDocumentWorker;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,10 +39,29 @@ public class Main {
         System.out.println(car);
         System.out.println(plane);
         System.out.println(ship);
+        System.out.println();
     }
 
     void startTask4() {
+        final String proCode = "proCode";
+        final String expertCode = "expertCode";
 
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите код доступа либо любой символ для продолжения: ");
+
+        String code = input.next();
+
+        DocumentWorker document;
+
+        if(code.equals(proCode)) {
+            document = new ProDocumentWorker();
+        } else if(code.equals(expertCode)) {
+            document = new ExpertDocumentWorker();
+        } else {
+            document = new DocumentWorker();
+        }
+
+        document.printAccessRights();
     }
 
     void startAddTask() {
