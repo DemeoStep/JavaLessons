@@ -1,6 +1,8 @@
 package homework3;
 
+import homework3.add_task.GreenPrinter;
 import homework3.add_task.Printer;
+import homework3.add_task.RedPrinter;
 import homework3.task2.*;
 import homework3.task3.Car;
 import homework3.task3.Plane;
@@ -53,9 +55,9 @@ public class Main {
 
         DocumentWorker document;
 
-        if(code.equals(proCode)) {
+        if (code.equals(proCode)) {
             document = new ProDocumentWorker();
-        } else if(code.equals(expertCode)) {
+        } else if (code.equals(expertCode)) {
             document = new ExpertDocumentWorker();
         } else {
             document = new DocumentWorker();
@@ -66,5 +68,11 @@ public class Main {
 
     void startAddTask() {
         Printer printer = new Printer();
+        Printer redPrinter = new RedPrinter();
+        Printer greenPrinter = new GreenPrinter();
+
+        printer.print("Строка стандартного цвета");
+        redPrinter.print("Строка красным цветом");
+        greenPrinter.print("Строка зеленым цветом");
     }
 }
