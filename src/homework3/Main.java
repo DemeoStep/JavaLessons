@@ -1,7 +1,7 @@
 package homework3;
 
 import homework3.add_task.Printer;
-import homework3.task2.ClassRoom;
+import homework3.task2.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,7 +18,13 @@ public class Main {
     }
 
     void startTask3() {
-        ClassRoom room = new ClassRoom();
+        Pupil pupil_1 = new BadPupil();
+        Pupil pupil_2 = new GoodPupil();
+        Pupil pupil_3 = new ExcelentPupil();
+        Pupil pupil_4 = new BadPupil();
+
+        ClassRoom room = new ClassRoom(pupil_1, pupil_2, pupil_3, pupil_4);
+        room.printClassRoom();
     }
 
     void startTask4() {
