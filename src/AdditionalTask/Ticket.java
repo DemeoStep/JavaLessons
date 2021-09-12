@@ -20,6 +20,21 @@ public class Ticket {
         supportSpecialist.addTicket(id);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String toJson() {
+        return "{\n" +
+                "\t\"id\": " + this.id + ",\n" +
+                "\t\"ServiceName\": \"" + this.serviceName + "\",\n" +
+                "\t\"isActive\": \"" + this.isActive + "\",\n" +
+                "\t\"problemDescription\": \"" + this.problemDescription + "\",\n" +
+                "\t\"customerId\": " + this.customerId + ",\n" +
+                "\t\"supportSpecialistId\": " + this.supportSpecialistId + ",\n" +
+                "}";
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +
