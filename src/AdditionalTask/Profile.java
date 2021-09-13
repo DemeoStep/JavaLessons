@@ -1,6 +1,6 @@
 package AdditionalTask;
 
-public class Profile {
+abstract class Profile {
     protected int id;
     protected String firstName;
     protected String lastName;
