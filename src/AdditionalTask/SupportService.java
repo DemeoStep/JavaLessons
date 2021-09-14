@@ -26,62 +26,9 @@ public class SupportService {
         profiles.addAll(customers);
 
 
-        Request(services, support, customers, tickets, profiles);
+        Requests.doRequest(services, support, customers, tickets, profiles);
 
     }
 
-    private static void Request(ArrayList<Service> services, ArrayList<SupportSpecialist> support, ArrayList<Customer> customers, ArrayList<Ticket> tickets, ArrayList<Profile> profiles) {
-        System.out.println("Список доступных запросов:\n" +
-                "#fetch_all_customers - выводит список всех клиентов с соответственными профилями\n" +
-                "#fetch_all_tickets - выводит список всех тикетов с клиентами без профилей\n" +
-                "#fetch_all_specialists - выводит список всех тех сотрудников с профилями и тикетами\n" +
-                "#fetch_all_profiles - выводит все профили с соответственными клиентами\n" +
-                "#fetch_all_services - выводит все сервисы с соответственными клиентами\n" +
-                "#save_ticket_to_file_{id} - сохраняет тикет по указанному id в файл с соответственными Customer SupportSpecialist\n");
 
-        System.out.print("Введите запрос: ");
-        Scanner input = new Scanner(System.in);
-        String request = input.next();
-
-        if(request.contains("#save_ticket_to_file_")) {
-            String str = request.substring(request.indexOf('{') + 1).replace("}", "");
-
-            int id = -1;
-
-            try{
-                id = Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                System.out.println("Введен неверный id");
-            }
-
-            Requests.save_ticket_to_file(tickets, id);
-            return;
-        }
-
-        switch (request) {
-            case "#fetch_all_customers": {
-                Requests.fetch_all_customers(customers);
-                break;
-            }
-            case "#fetch_all_specialists": {
-                Requests.fetch_all_specialists(support);
-                break;
-            }
-            case "#fetch_all_tickets": {
-                Requests.fetch_all_tickets(tickets);
-                break;
-            }
-            case "#fetch_all_services": {
-                Requests.fetch_all_services(services);
-                break;
-            }
-            case "#fetch_all_profiles": {
-                Requests.fetch_all_profiles(profiles);
-                break;
-            }
-            default: {
-                System.out.println("Вы ввели неверный запрос...");
-            }
-        }
-    }
 }
