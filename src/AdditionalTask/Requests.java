@@ -31,29 +31,29 @@ abstract class Requests {
                 System.out.println("Введен неверный id");
             }
 
-            Requests.save_ticket_to_file(tickets, id);
+            Requests.saveTicketToFile(tickets, id);
             return;
         }
 
         switch (request) {
             case "#fetch_all_customers": {
-                fetch_all_customers(customers);
+                fetchAllCustomers(customers);
                 break;
             }
             case "#fetch_all_specialists": {
-                fetch_all_specialists(support);
+                fetchAllSpecialists(support);
                 break;
             }
             case "#fetch_all_tickets": {
-                fetch_all_tickets(tickets);
+                fetchAllTickets(tickets);
                 break;
             }
             case "#fetch_all_services": {
-                fetch_all_services(services);
+                fetchAllServices(services);
                 break;
             }
             case "#fetch_all_profiles": {
-                fetch_all_profiles(profiles);
+                fetchAllProfiles(profiles);
                 break;
             }
             default: {
@@ -62,37 +62,37 @@ abstract class Requests {
         }
     }
 
-    private static void fetch_all_customers(ArrayList<Customer> customers) {
+    private static void fetchAllCustomers(ArrayList<Customer> customers) {
         for (Customer customer : customers) {
             System.out.println(customer);
         }
     }
 
-    private static void fetch_all_specialists(ArrayList<SupportSpecialist> support) {
+    private static void fetchAllSpecialists(ArrayList<SupportSpecialist> support) {
         for (SupportSpecialist sup : support) {
             System.out.println(sup);
         }
     }
 
-    private static void fetch_all_tickets(ArrayList<Ticket> tickets) {
+    private static void fetchAllTickets(ArrayList<Ticket> tickets) {
         for (Ticket ticket : tickets) {
             System.out.println(ticket);
         }
     }
 
-    private static void fetch_all_services(ArrayList<Service> services) {
+    private static void fetchAllServices(ArrayList<Service> services) {
         for (Service service : services) {
             System.out.println(service);
         }
     }
 
-    private static void fetch_all_profiles(ArrayList<Profile> profiles) {
+    private static void fetchAllProfiles(ArrayList<Profile> profiles) {
         for (Profile profile : profiles) {
             System.out.println(profile);
         }
     }
 
-    private static void save_ticket_to_file(ArrayList<Ticket> tickets, int id) {
+    private static void saveTicketToFile(ArrayList<Ticket> tickets, int id) {
         if (id < 0) {
             return;
         }
