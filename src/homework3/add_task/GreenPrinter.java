@@ -1,10 +1,10 @@
 package homework3.add_task;
 
-import homework3.ConsoleColors;
+import homework3.ConsoleColor;
 
 public class GreenPrinter extends Printer{
     @Override
     public void print(String value) {
-        super.print(ConsoleColors.GREEN + value + ConsoleColors.RESET);
+        super.print(ConsoleColor.GREEN + value + ConsoleColor.RESET);
     }
 }
