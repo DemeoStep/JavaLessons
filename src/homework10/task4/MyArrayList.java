@@ -162,17 +162,23 @@ public class MyArrayList<T> {
 
         @Override
         public T next() {
-            return get(cursor++);
+            T result = get(cursor);
+            if(hasNext()) {
+                cursor++;
+            }
+
+            return result;
         }
 
         @Override
         public boolean hasNext() {
-            return cursor < length;
+            return cursor < length - 1;
         }
 
         @Override
-        public void remove() {
-            
+        public void removeIt() {
+            remove(cursor);
+            cursor--;
         }
     }
 

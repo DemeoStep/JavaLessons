@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             myArrayList.add(i+1);
         }
 
@@ -16,7 +16,10 @@ public class Main {
             System.out.println(iterator.next());
         }
 
-        System.out.println(iterator.next());
+        iterator.removeIt();
+        iterator.removeIt();
+
+        System.out.println(myArrayList);
     }
 }
 
