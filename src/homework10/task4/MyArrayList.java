@@ -5,6 +5,7 @@ import Console.ConsoleColor;
 import java.util.Arrays;
 
 public class MyArrayList<T> {
+
     private T[] list = (T[]) new Object[5];
     private int length = 0;
 
@@ -59,6 +60,10 @@ public class MyArrayList<T> {
         T element = null;
 
         try {
+            if (index >= length || index < 0) {
+                throw new ArrayIndexOutOfBoundsException();
+            }
+
             element = list[index];
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println(ConsoleColor.RED + "Индекс {" + index + "} за пределами массива" + ConsoleColor.RESET);
@@ -142,6 +147,24 @@ public class MyArrayList<T> {
     
     public void trimToSize(){
         list = Arrays.copyOf(list, length);
+    }
+
+    public MyListIterator<T> iterator() {
+        return new Iterator();
+    }
+
+    private class Iterator implements MyListIterator<T>{
+        private int cursor;
+
+        @Override
+        public T next() {
+            return get(cursor++);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return cursor < length;
+        }
     }
 
     @Override
