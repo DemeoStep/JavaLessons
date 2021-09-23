@@ -178,7 +178,9 @@ public class MyArrayList<T> {
         @Override
         public void removeIt() {
             remove(cursor);
-            cursor--;
+            if(!hasNext()) {
+                cursor--;
+            }
         }
     }
 
