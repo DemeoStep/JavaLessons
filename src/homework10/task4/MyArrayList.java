@@ -46,6 +46,10 @@ public class MyArrayList<T> {
 
     public void set(int index, T value) {
         try {
+            if (index >= length || index < 0) {
+                throw new ArrayIndexOutOfBoundsException();
+            }
+
             list[index] = value;
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println(ConsoleColor.RED + "Индекс {" + index + "} за пределами массива" + ConsoleColor.RESET);
@@ -164,6 +168,11 @@ public class MyArrayList<T> {
         @Override
         public boolean hasNext() {
             return cursor < length;
+        }
+
+        @Override
+        public void remove() {
+            
         }
     }
 
