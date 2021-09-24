@@ -103,11 +103,11 @@ public class MyArrayList<T> {
         list = Arrays.copyOf(list, length);
     }
 
-    public Iterator iterator() {
-        return new Iterator();
+    public Iter iterator() {
+        return new Iter();
     }
 
-    private class Iterator implements java.util.Iterator<T> {
+    private class Iter implements Iterator<T> {
         private int cursor;
 
         @Override
