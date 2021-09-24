@@ -15,7 +15,7 @@ public class MyArrayList<T> {
     }
 
     private void grow() {
-        if (length == list.length - 1) {
+        if (length == list.length) {
             list = Arrays.copyOf(list, length + length / 2);
         }
     }
