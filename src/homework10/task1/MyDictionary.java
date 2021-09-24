@@ -2,7 +2,7 @@ package homework10.task1;
 
 import java.util.ArrayList;
 
-public class MyDictionary<TKey, TValue> implements IDictionary<TKey, TValue>{
+public class MyDictionary<TKey, TValue> implements IDictionary<TKey, TValue> {
 
     ArrayList<TKey> keys = new ArrayList<>();
     ArrayList<TValue> values = new ArrayList<>();
@@ -10,15 +10,14 @@ public class MyDictionary<TKey, TValue> implements IDictionary<TKey, TValue>{
     @Override
     public void add(TKey key, TValue value) {
         try {
-            for (TKey index : keys) {
-                if (index.equals(key)) {
-                    throw new Exception("Duplicate key {" + key + "}");
-                }
+
+            if (keys.contains(key)) {
+                throw new Exception("Duplicate key {" + key + "}");
             }
 
             keys.add(key);
             values.add(value);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }

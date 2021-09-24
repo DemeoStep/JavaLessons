@@ -1,8 +1,7 @@
 package homework10.task4;
 
-import Console.ConsoleColor;
-
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class MyArrayList<T> {
 
@@ -16,98 +15,50 @@ public class MyArrayList<T> {
     }
 
     private void grow() {
-        if(length == list.length - 1) {
-            list = Arrays.copyOf(list, length + length/2);
+        if (length == list.length - 1) {
+            list = Arrays.copyOf(list, length + length / 2);
         }
     }
 
     public void add(int index, T value) {
-        if(isEmpty() || index >= length) {
-            add(value);
-            return;
+        if (index > length || index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
         }
 
-        T[] arr = Arrays.copyOf(list, length);
+        grow();
 
-        clear();
+        System.arraycopy(list, index, list, index + 1, length + 1 - index);
 
-        if(index < 0) {
-            add(value);
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            if(i == index) {
-                add(value);
-            }
-
-            add(arr[i]);
-        }
+        list[index] = value;
+        length++;
     }
 
     public void set(int index, T value) {
-        try {
-            if (index >= length || index < 0) {
-                throw new ArrayIndexOutOfBoundsException();
-            }
-
-            list[index] = value;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(ConsoleColor.RED + "Индекс {" + index + "} за пределами массива" + ConsoleColor.RESET);
-        }
+        list[index] = value;
     }
 
     public T get(int index) {
-        if (isEmpty()) {
-            return null;
+        if (isEmpty() || index >= length || index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
         }
 
-        T element = null;
-
-        try {
-            if (index >= length || index < 0) {
-                throw new ArrayIndexOutOfBoundsException();
-            }
-
-            element = list[index];
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(ConsoleColor.RED + "Индекс {" + index + "} за пределами массива" + ConsoleColor.RESET);
-        }
-
-        return element;
+        return list[index];
     }
 
     public void remove(int index) {
-        if (isEmpty()) {
-            return;
+
+        if (isEmpty() || index >= length || index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
         }
 
-        try {
-            if (index >= length || index < 0) {
-                throw new ArrayIndexOutOfBoundsException();
-            }
+        System.arraycopy(list, index + 1, list, index, length - index);
 
-            T[] arr = Arrays.copyOf(list, length);
-
-            clear();
-
-            for (int i = 0; i < arr.length; i++) {
-                if (i == index) {
-                    continue;
-                }
-                add(arr[i]);
-            }
-
-            trimToSize();
-
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(ConsoleColor.RED + "Индекс {" + index + "} за пределами массива" + ConsoleColor.RESET);
-        }
-
+        length--;
     }
 
     public int indexOf(T value) {
 
-        for (int i = 0; i < list.length; i++) {
+        for (int i = 0; i < length; i++) {
             if (list[i].equals(value)) {
                 return i;
             }
@@ -117,15 +68,14 @@ public class MyArrayList<T> {
     }
 
     public int lastIndexOf(T value) {
-        int index = -1;
 
-        for (int i = 0; i < length; i++) {
+        for (int i = length - 1; i >= 0; i--) {
             if (list[i].equals(value)) {
-                index = i;
+                return i;
             }
         }
 
-        return index;
+        return -1;
     }
 
     public int size() {
@@ -148,22 +98,22 @@ public class MyArrayList<T> {
     public T[] toArray(T[] arr) {
         return (T[]) Arrays.copyOf(list, length, arr.getClass());
     }
-    
-    public void trimToSize(){
+
+    public void trimToSize() {
         list = Arrays.copyOf(list, length);
     }
 
-    public MyListIterator<T> iterator() {
+    public Iterator iterator() {
         return new Iterator();
     }
 
-    private class Iterator implements MyListIterator<T>{
+    private class Iterator implements java.util.Iterator<T> {
         private int cursor;
 
         @Override
         public T next() {
-            T result = get(cursor);
-            if(hasNext()) {
+            T result = (T) get(cursor);
+            if (hasNext()) {
                 cursor++;
             }
 
@@ -172,15 +122,12 @@ public class MyArrayList<T> {
 
         @Override
         public boolean hasNext() {
-            return cursor < length - 1;
+            return cursor < length;
         }
 
         @Override
-        public void removeIt() {
-            remove(cursor);
-            if(!hasNext()) {
-                cursor--;
-            }
+        public void remove() {
+            MyArrayList.this.remove(cursor);
         }
     }
 
@@ -189,7 +136,7 @@ public class MyArrayList<T> {
         String str = "MyArrayList: [";
         for (int i = 0; i < length; i++) {
             str += list[i];
-            if(i < length - 1) {
+            if (i < length - 1) {
                 str += ", ";
             }
         }
