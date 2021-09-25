@@ -51,7 +51,7 @@ public class MyArrayList<T> {
             throw new ArrayIndexOutOfBoundsException();
         }
 
-        System.arraycopy(list, index + 1, list, index, length - index);
+        System.arraycopy(list, index + 1, list, index, length - 1 - index);
 
         length--;
     }
