@@ -2,6 +2,7 @@ package homework10.task4;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class MyArrayList<T> {
 
@@ -107,21 +108,46 @@ public class MyArrayList<T> {
         list = Arrays.copyOf(list, length);
     }
 
-    public Iter iterator() {
+    public Iter listIterator() {
         return new Iter();
     }
 
-    private class Iter implements Iterator<T> {
+    private class Iter implements ListIterator<T> {
         private int cursor;
 
         @Override
         public T next() {
-            T result = (T) get(cursor);
+            T result = get(cursor);
             if (hasNext()) {
                 cursor++;
             }
 
             return result;
+        }
+
+        @Override
+        public boolean hasPrevious() {
+            return cursor > 0;
+        }
+
+        @Override
+        public T previous() {
+            T result = get(cursor);
+            if (hasPrevious()) {
+                cursor--;
+            }
+
+            return result;
+        }
+
+        @Override
+        public int nextIndex() {
+            return cursor + 1;
+        }
+
+        @Override
+        public int previousIndex() {
+            return cursor - 1;
         }
 
         @Override
@@ -132,6 +158,16 @@ public class MyArrayList<T> {
         @Override
         public void remove() {
             MyArrayList.this.remove(cursor);
+        }
+
+        @Override
+        public void set(T t) {
+            MyArrayList.this.set(cursor, t);
+        }
+
+        @Override
+        public void add(T t) {
+            MyArrayList.this.add(t);
         }
     }
 

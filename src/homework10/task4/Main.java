@@ -1,6 +1,6 @@
 package homework10.task4;
 
-import java.util.Iterator;
+import java.util.ListIterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class Main {
             myArrayList.add(i+1);
         }
 
-        Iterator<Integer> iterator = myArrayList.iterator();
+        ListIterator<Integer> iterator = myArrayList.listIterator();
 
         iterator.remove();
 
