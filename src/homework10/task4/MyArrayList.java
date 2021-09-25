@@ -142,12 +142,18 @@ public class MyArrayList<T> {
 
         @Override
         public int nextIndex() {
-            return cursor + 1;
+            if(cursor < length -1) {
+                return cursor + 1;
+            }
+            return -1;
         }
 
         @Override
         public int previousIndex() {
-            return cursor - 1;
+            if(cursor > 0) {
+                return cursor - 1;
+            }
+            return -1;
         }
 
         @Override

@@ -12,7 +12,12 @@ public class Main {
 
         ListIterator<Integer> iterator = myArrayList.listIterator();
 
-        iterator.remove();
+        iterator.add(11);
+        iterator.next();
+        iterator.next();
+
+        System.out.println(iterator.nextIndex());
+        System.out.println(iterator.previousIndex());
 
         System.out.println(myArrayList);
     }
