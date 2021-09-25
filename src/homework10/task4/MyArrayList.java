@@ -27,7 +27,7 @@ public class MyArrayList<T> {
 
         grow();
 
-        System.arraycopy(list, index, list, index + 1, length + 1 - index);
+        System.arraycopy(list, index, list, index + 1, length - index);
 
         list[index] = value;
         length++;
