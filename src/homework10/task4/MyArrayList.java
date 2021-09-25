@@ -34,6 +34,10 @@ public class MyArrayList<T> {
     }
 
     public void set(int index, T value) {
+        if (isEmpty() || index >= length || index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+
         list[index] = value;
     }
 
