@@ -1,7 +1,6 @@
 package homework10.task4;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.ListIterator;
 
 public class MyArrayList<T> {
