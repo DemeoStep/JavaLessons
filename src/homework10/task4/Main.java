@@ -12,14 +12,15 @@ public class Main {
 
         ListIterator<Integer> iterator = myArrayList.listIterator();
 
-        iterator.add(11);
-        iterator.next();
-        iterator.next();
-
-        System.out.println(iterator.nextIndex());
-        System.out.println(iterator.previousIndex());
-
         System.out.println(myArrayList);
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println(iterator.next());
+        }
+
+        while(iterator.hasPrevious()) {
+            System.out.println(iterator.previous());
+        }
     }
 }
 
